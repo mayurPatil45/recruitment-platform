@@ -4,7 +4,8 @@
   "description": "TY project Shree Ganesh",
   "main": "sample.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx node app.js"
   },
   "author": "T6 Sudhanshu k log",
   "license": "ISC",
