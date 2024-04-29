@@ -1,0 +1,136 @@
+[33mcommit 5d41653e5e2fd64a8a5fd9a1d748685a2b0a54d1[m[33m ([m[1;36mHEAD -> [m[1;32mV2[m[33m)[m
+Merge: 1d99eb1 aa9f2d9
+Author: Ganesh Kasar <ganekasar@gmail.com>
+Date:   Sat Nov 14 15:21:30 2020 +0530
+
+    Conflict Resolves
+
+[33mcommit 1d99eb1e828b890092837ccf6a631e8efd6c52c4[m
+Merge: 17ed9c1 7897805
+Author: Ganesh Kasar <ganekasar@gmail.com>
+Date:   Sat Nov 14 15:18:13 2020 +0530
+
+    Rolling Back
+
+[33mcommit 17ed9c1ba23602c9a5efdd77628180a16dd86f0e[m
+Author: Ganesh Kasar <ganekasar@gmail.com>
+Date:   Sat Nov 14 15:11:59 2020 +0530
+
+    Files Updated
+
+[33mcommit 7897805478a409cf81b537cdc53df0e6e87161de[m[33m ([m[1;31morigin/V2[m[33m)[m
+Author: sudhanshu457 <s16102000@gmail.com>
+Date:   Sat Nov 14 15:05:42 2020 +0530
+
+    Changes made to post route of managetest
+
+[33mcommit f51ac93716af6f788d002c08a4b7fc8da7b1f659[m
+Author: EC2 Default User <ec2-user@ip-172-31-36-121.us-east-2.compute.internal>
+Date:   Sat Nov 14 08:31:52 2020 +0000
+
+    1.Add candidate Auth
+    2. Add new login route and logic
+    3. Add logout logic
+    4. Change Candidate schema for auth purpose email->username
+    5.Modify nav bar according to loggedin user
+    6. change nav style
+    7. Remove unnecessary routes
+
+[33mcommit 9592f55cf1d417bb85af6270f35b6acd6548093a[m
+Author: sudhanshu457 <s16102000@gmail.com>
+Date:   Fri Nov 13 17:04:57 2020 +0530
+
+    Joined Student and test
+
+[33mcommit aa9f2d9c66ab4ef503f06172a629670e6eda6f5f[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: EC2 Default User <ec2-user@ip-172-31-36-121.us-east-2.compute.internal>
+Date:   Fri Nov 13 10:35:49 2020 +0000
+
+    temporary main branch
+
+[33mcommit e67ae37783145e2dfe26e5026fd40d3388ddbe17[m
+Merge: e686456 ca8c61a
+Author: Suyash Savji <61389277+savjisuyash-code@users.noreply.github.com>
+Date:   Fri Nov 13 15:34:18 2020 +0530
+
+    Merge pull request #1 from ganekasar/V2
+    
+    Boiler Plate is created. Multiple test functionalities and Changes ma…
+
+[33mcommit ca8c61a67abca8c04e63dc74f52b4846a8715695[m
+Author: EC2 Default User <ec2-user@ip-172-31-36-121.us-east-2.compute.internal>
+Date:   Fri Nov 13 09:31:18 2020 +0000
+
+    Boiler Plate is created. Multiple test functionalities and Changes made by sudhanshu are absent
+
+[33mcommit e686456809f239ca456cb9708074b826831dd253[m[33m ([m[1;32mmain[m[33m)[m
+Author: Sudhanshu Pusadkar <s16102000@gmail.com>
+Date:   Fri Nov 13 12:48:58 2020 +0530
+
+    Changes made to manage tests and view tests. Now All routes are correct
+
+[33mcommit 03c039981363bed0e8aa1bdaa707c28ff093323b[m
+Author: Ganesh Kasar <ganekasar@gmail.com>
+Date:   Fri Nov 13 00:36:51 2020 +0530
+
+    Multiple Test Part 1
+
+[33mcommit 192b94abead8dbad1a2d3a8e40e1ccb97a4963f4[m
+Author: Ganesh Kasar <ganekasar@gmail.com>
+Date:   Thu Nov 12 22:33:03 2020 +0530
+
+    Response Schema added
+
+[33mcommit 2fc946a5667352c9de29dae8b721c3050f80153b[m
+Author: Ganesh Kasar <ganekasar@gmail.com>
+Date:   Thu Nov 12 21:27:49 2020 +0530
+
+    Score Evaluation added
+
+[33mcommit 9011f056000804c0386e8165e61af12c6f7e3a5b[m
+Author: Ganesh Kasar <ganekasar@gmail.com>
+Date:   Thu Nov 12 21:07:15 2020 +0530
+
+    Added files
+
+[33mcommit dd36c2b7e89c021044a9f36e5c34b5a8c435514d[m
+Author: Ganesh Kasar <ganekasar@gmail.com>
+Date:   Tue Nov 10 22:41:52 2020 +0530
+
+    Files Updated
+
+[33mcommit b38e6b60d604d0fcfecc2204c7bdb7011ddab1ba[m
+Author: Ganesh Kasar <ganekasar@gmail.com>
+Date:   Tue Nov 10 22:39:25 2020 +0530
+
+    Files Updated
+
+[33mcommit a9fad1a71dc93ab194fdcdca2b79aa890d8d0629[m
+Author: Ganesh Kasar <ganekasar@gmail.com>
+Date:   Wed Nov 4 23:10:43 2020 +0530
+
+    Updated app.js for sending responses
+
+[33mcommit 18cfd359ba29fcdd22fb8c5336ba531b20da45b3[m
+Author: Ganesh Kasar <ganekasar@gmail.com>
+Date:   Wed Nov 4 15:12:51 2020 +0530
+
+    Create & Attempt Test pages added
+
+[33mcommit 30c9b4801ca4cf2719b1f977a11bca8a3abfe2b3[m
+Author: Ganesh Kasar <ganekasar@gmail.com>
+Date:   Wed Nov 4 10:12:26 2020 +0530
+
+    added Landing Page & some basic routes
+
+[33mcommit aa26bb7e73e710878b1cc0077ea12da583c800fe[m
+Author: Ganesh Kasar <ganekasar@gmail.com>
+Date:   Mon Oct 5 12:28:47 2020 +0530
+
+    Test File added
+
+[33mcommit 964a1186e8d8d4db1f4d827a435aafa4b04e8ebf[m
+Author: Ganesh Kasar <48873862+ganekasar@users.noreply.github.com>
+Date:   Mon Oct 5 09:51:40 2020 +0530
+
+    Initial commit

@@ -1,0 +1,25 @@
+<%- include("partials/header") %>
+<h3>Test Result for <%=testname%></h3>
+<% if(result.length == 0){%>
+    <h1>No one has given the test.</h1>
+<%}%>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Marks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for(var i=0; i<result.length; i++){ %>
+      <%  if(result[i][0].length>1){ //if length is one dont show       %>
+        <tr>
+          <td><%= result[i][0] %></td>
+          <td><%= result[i][1] %></td>
+          <td><%= result[i][2] %></td>
+        </tr>
+      <% }} %>
+    </tbody>
+</table>
+<%- include("partials/footer") %>

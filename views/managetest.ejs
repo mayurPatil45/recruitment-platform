@@ -1,0 +1,85 @@
+<%- include("partials/header") %>
+
+    <div class="container">
+        <h1>You can create test here!</h1>
+    </div>
+
+    <div class="container">
+        <h2>Add Question</h2>
+    </div>
+
+    <div class="container">
+
+        <form action="/managetest" method="POST">
+            <div class="form-group">
+                <input type="text" name="question" placeholder="Question">
+            </div>
+            <div class="form-group">
+                <input type="text" name="option1" placeholder="Option a">
+            </div>
+            <div class="form-group">
+                <input type="text" name="option2" placeholder="Option b">
+            </div>
+            <div class="form-group">
+                <input type="text" name="option3" placeholder="Option c">
+            </div>
+            <div class="form-group">
+                <input type="text" name="option4" placeholder="Option d">
+            </div>
+            <div class="form-group">
+              <label>Please enter in form of "a","b","c" or "d" (without qoutes)</label>
+                <input type="text" name="answer" placeholder="Correct Answer" required>
+            </div>
+
+            <input type="text" name="type" value="mcq" hidden>
+            <input type="text" name="test" value="<%=test%>" hidden>
+
+            <div>
+                <button type="submit" class="btn btn-primary">Add</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="container">
+        <h2>Add Coding Question</h2>
+    </div>
+
+    <div class="container">
+
+        <form action="/managetest" method="POST">
+            <div class="form-group">
+                <textarea rows="4" cols="50" type="text" name="question" placeholder="Question"></textarea>
+            </div>
+            <div class="form-group">
+                <textarea rows="4" cols="50" type="text" name="input" placeholder="Input Format"></textarea>
+            </div>
+            <div class="form-group">
+                <textarea rows="4" cols="50" type="text" name="output" placeholder="Output Format"></textarea>
+            </div>
+            <div class="form-group">
+                <textarea rows="4" cols="50" type="text" name="constraints" placeholder="Constraints"></textarea>
+            </div>
+            <div class="form-group">
+                <textarea rows="4" cols="50" type="text" name="sample" placeholder="Sample Test Cases"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="">Input File</label>
+                <input type="file" name="inputfile" accept="text/html">
+            </div>
+            <input type="text" name="type" value="coding" hidden>
+            <input type="text" name="test" value="<%=test%>" hidden>
+
+            <div>
+                <button type="submit" class="btn btn-primary">Add</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="container">
+        <h1>You can view test from here..</h1>
+        <form action="/<%= test %>/test" method="GET">
+            <button type="submit" class="btn btn-success btn-lg">Attempt Test</button>
+        </form>
+    </div>
+
+<%- include("partials/footer") %>

@@ -1,0 +1,105 @@
+<%- include("partials/header") %>
+  <div class="container">
+  <h1>Test will be displayed here!</h1> <hr><hr>
+  <h3 id="remtime"></h3>
+  </div>
+  <% date= Date.parse(date); %>
+  <% var totalTime=date+(duration*1000); console.log(date); %>
+  <!-- Timer need to be added && multiplied by 1000 to convet into milliseconds-->
+   <script>
+      const changingId = document.getElementById('remtime');
+      var currentTime= Date.parse(new Date())+(19800000);
+      var durationOfExam= ((<%= totalTime %> - currentTime )/1000);
+      setInterval(timer,1000);
+      function timer(){
+        let hour=Math.floor(durationOfExam/3600);
+        let minutes=Math.floor((durationOfExam/60)%60);
+        let seconds=durationOfExam % 60;
+        seconds = seconds < 10 ?'0'+seconds : seconds;
+        minutes = minutes < 10 ?'0'+minutes : minutes;
+        changingId.innerHTML="Time Remaining: "+hour+":"+ minutes+":"+seconds;
+        durationOfExam--;
+        if(durationOfExam === 0){
+          let myForm = document.querySelector("#test");
+          let submitButton = myForm.querySelector("#main-submit");
+          if (myForm.requestSubmit) {
+            alert("Test is Over!!!");
+            if (submitButton) {
+              myForm.requestSubmit(submitButton);
+            } else {
+              myForm.requestSubmit();
+            }
+          } else {
+            myForm.submit();
+          }
+        }
+      }
+   </script>
+
+    <div onselectstart="return false" class="container">
+        <!-- <h1>Test will be displayed here!</h1> -->
+        <form id="test" action="/test" method="POST">
+          <% console.log(foundQuestions) %>
+            <% for(var i=0; i<foundQuestions.length; i++) { %>
+                <!-- <h3> <%= //foundQuestions[i]._id %> </h3> -->
+                <h2> <%= i+1 %>. <%= foundQuestions[i].question %> </h2>
+
+                    <p>Select one option</p>
+                    <label for="A">A. </label>
+                    <input type="radio" id="A" name="q<%=i%>" value="A"> <%= foundQuestions[i].option1 %> <br>
+                    <label for="B">B. </label>
+                    <input type="radio" id="B" name="q<%=i%>" value="B">  <%= foundQuestions[i].option2 %> <br>
+                    <label for="C">C. </label>
+                    <input type="radio" id="C" name="q<%=i%>" value="C">  <%= foundQuestions[i].option3 %> <br>
+                    <label for="D">D. </label>
+                    <input type="radio" id="D" name="q<%=i%>" value="D">  <%= foundQuestions[i].option4 %> <br>
+
+                    <input type="text" name="ques<%=i%>" value="<%=foundQuestions[i]._id%>" hidden>
+
+            <% } %>
+
+            <input type="number" name="length" value="<%=foundQuestions.length%>" hidden>
+
+            <button id="main-submit" type="submit">Submit</button>
+        </form>
+    </div>
+
+    <% if(foundCodingProblems.length > 0) { %>
+    <div onselectstart="return false">
+        <div>
+          <% for( var i =0 ;i< foundCodingProblems.length;i++){ %>
+            <div>
+                <h3>Problem Statement</h3>
+                <h2> <%= foundCodingProblems[i].question %> </h2>
+
+                <h3>Input Format</h3>
+                <h2> <%= foundCodingProblems[i].input %> </h2>
+
+                <h3>Output Format</h3>
+                <h2> <%= foundCodingProblems[i].output %> </h2>
+
+                <h3>Constraints</h3>
+                <h2> <%= foundCodingProblems[i].constraints %> </h2>
+
+                <h3>Sample Test Cases</h3>
+                <h2> <%= foundCodingProblems[i].sample %> </h2>
+            </div>
+            <div>
+                <iframe src="https://leetcode.com/playground/EDWEfbTD/shared" frameBorder="0" width="50%" height="100%"></iframe>
+            </div>
+        </div>
+        <!-- <script type="text/javascript">
+            window.addEventListener('beforeunload', function (e) {
+                e.preventDefault();
+                e.returnValue = 'Your changes ';
+            });
+            document.addEventListener('visibilitychange', function() {
+    document.hidden; // whether or not the tab is visible
+});
+
+
+        </script> -->
+    </div>
+    <% }} %>
+
+<%- include("partials/footer") %>

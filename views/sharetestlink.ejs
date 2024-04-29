@@ -1,0 +1,33 @@
+<%- include("partials/header") %>
+
+    <div class="container">
+        <h1>You can share test link here!</h1>
+            <form action="/<%= testid %>/sharetestlink" method="POST">
+                <div>
+                    <input type="text" name="year" placeholder="Year">
+                </div>
+                <div>
+                    <input type="text" name="month" placeholder="month">
+                </div>
+                <div>
+                    <input type="text" name="day" placeholder="day">
+                </div>
+                <div>
+                    <input type="text" name="hour" placeholder="hour">
+                </div>
+                <div>
+                    <input type="text" name="minute" placeholder="minute">
+                </div>
+                <div>
+                    <input type="text" name="second" placeholder="second">
+                </div>
+
+                <div>
+                    <button type="submit">Add</button>
+                </div>
+            </form>
+
+
+    </div>
+
+<%- include("partials/footer") %>

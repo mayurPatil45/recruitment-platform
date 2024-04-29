@@ -1,0 +1,429 @@
+<head>
+  <style>
+    @import url(https://fonts.googleapis.com/css?family=Work+Sans:300,600);
+
+body{
+  font-size: 20px;
+  font-family: 'Work Sans', sans-serif;
+  color: #333;
+  font-weight: 300;
+  text-align: center;
+  background-color: #f8f6f0;
+}
+h1{
+  font-weight: 300;
+  margin: 0px;
+  padding: 10px;
+  font-size: 25px;
+  background-color: #444;
+  color: #fff;
+}
+.question{
+  font-size: 20px;
+  margin-bottom: 10px;
+  position:relative;
+  word-break: break-word;
+}
+.answers {
+  margin-bottom: 40px;
+  text-align: left;
+  display: inline-block;
+  position:relative;
+}
+.answers label{
+  display: block;
+  margin-bottom: 10px;
+}
+button{
+  font-family: 'Work Sansposition:relative;', sans-serif;
+  font-size: 15px;
+  background-color: #279;
+  color: #fff;
+  border: 0px;
+  border-radius: 3px;
+  padding: 13px;
+  cursor: pointer;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  position:relative;
+}
+button:hover{
+  background-color: #38a;
+}
+
+#remtime{
+  margin-left:80%;
+}
+.slide{
+  position: absolute;
+  left: 230px;
+  top: 0px;
+  width: 50%;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.5s;
+  margin-bottom: 50px;
+}
+.active-slide{
+  opacity: 1;
+  z-index: 2;
+}
+.quiz-container{
+  position: relative;
+  height: 200px;
+  margin-top: 40px;
+  margin-left:200px;
+}
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+body {
+  margin: 0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 11%;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+li a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+li a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+body:fullscreen {
+  color: green;
+  width: 100vw;
+  height: 100vh;
+}
+
+body:-webkit-full-screen {
+  color: green;
+  width: 100vw;
+  height: 100vh;
+}
+
+body:-moz-full-screen {
+  color: green;
+  width: 100vw;
+  height: 100vh;
+}
+
+body:-ms-fullscreen {
+  color: green;
+  width: 100vw;
+  height: 100vh;
+}
+  </style>
+</head>
+<body id="body" class="noselect" >
+<ul>
+  <br>
+  <li>Question Palette</li><br>
+  <li id="que"></li>
+</ul>
+<h1>TesT</h1 >
+  <h3 style="align=center; color:red;" id="time"></h3>
+<h3 id="remtime"></h3 >
+<div class="quiz-container" >
+  <div id="quiz"></div >
+</div >
+<button id="previous">Previous Question</button >
+<button id="next">Next Question</button >
+<button id="submitid">Submit Quiz</button>
+<button id="start">Start Test</button>
+<div id="results"></div>
+<% date= Date.parse(date);%>
+<% var totalTime=date+(duration*1000); %>
+<script type="text/javascript">
+
+        function fullscreen()
+        {
+          let elem = document.querySelector("body");
+          if (!document.fullscreenElement) {
+            elem.requestFullscreen().catch(err => {
+              alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+              console.log(err);
+            });
+          } else {
+            document.exitFullscreen();
+          }
+        }
+      //  let myVar;
+        var second=10;
+        const escapepress = document.getElementById('time');
+        escapepress.innerHTML="Don't change tab during the exam as it will end the test and your score will be zero."
+        escapepress.style.color="red";
+        // function fullscreenstoptimer()
+        // {
+        //   escapepress.style.display="none";
+        //   let elem = document.querySelector("body");
+        //   if (!document.fullscreenElement) {
+        //     elem.requestFullscreen().catch(err => {
+        //       alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+        //       console.log(err);
+        //     });
+        //   } else {
+        //     document.exitFullscreen();
+        //   }
+        // }
+        //var num=1;
+        // const fullquiz = document.getElementById('full');
+        // fullquiz.style.display = 'none';
+        //fullquiz.addEventListener("click",fullscreenstoptimer);
+        let loaded = false;
+        const onVisibilityChange = () => {
+          if (document.visibilityState === 'hidden') {
+            console.log("HELLP");
+          }
+        };
+        document.addEventListener('visibilitychange', onVisibilityChange);
+        function preventBack() {
+            window.history.forward();
+        }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () { null };
+</script>
+<script type="text/javascript">
+  let currentSlide = 0;
+  (function(){
+    // Functions
+    document.addEventListener('fullscreenchange', full);
+    function full(){
+     {
+        var myVar;
+        if (!document.fullscreenElement) {
+          alert("Outside !!! Your Test is over");
+          //showResults();
+            let myForm = document.querySelector("form");
+            let submitButton = myForm.querySelector("submit");
+            if (myForm.requestSubmit) {
+              if (submitButton) {
+                myForm.requestSubmit(submitButton);
+              } else {
+                myForm.requestSubmit();
+              }
+            } else {
+              myForm.submit();
+            }
+        }
+      }
+    }
+    window.addEventListener('blur', stop);
+    function stop(){
+      document.removeEventListener('fullscreenchange',full);
+      full();
+    }
+    function submitform() {
+      if (validate()) // Calling validate function
+      {
+        alert('Test is submitting.....');
+        document.getElementById("thisform").submit();
+      }
+    }
+    const changingId = document.getElementById('remtime');
+    var currentTime= Date.parse(new Date())+(19800000);
+    var durationOfExam= ((<%= totalTime %> - currentTime )/1000);
+    function timer(){
+      let hour=Math.floor(durationOfExam/3600);
+      let minutes=Math.floor((durationOfExam/60)%60);
+      let seconds=durationOfExam % 60;
+      seconds = seconds < 10 ?'0'+seconds : seconds;
+      minutes = minutes < 10 ?'0'+minutes : minutes;
+      changingId.innerHTML="Time Remaining: "+hour+":"+ minutes+":"+seconds;
+      durationOfExam--;
+      if(durationOfExam===10)
+      {
+        document.removeEventListener('fullscreenchange',full);
+      }
+      if(durationOfExam === 0){
+        submitform();
+      }
+    }
+    function validate(){
+      showResults();
+      return true;
+    }
+    function buildQuiz(){
+      // variable to store the HTML output
+      const output = [];
+
+      // for each question...
+      var cu=1;
+      myQuestions.forEach(
+        (currentQuestion, questionNumber) => {
+
+          // variable to store the list of possible answers
+          const answers = [];
+
+          // and for each available answer...
+          for(letter in currentQuestion.answers){
+
+            // ...add an HTML radio button
+            answers.push(
+              `<label>
+                <input type="radio" name="question${questionNumber}" value="${letter}">
+                ${letter} :
+                ${currentQuestion.answers[letter]}
+              </label>`
+            );
+          }
+
+          // add this question and its answers to the output
+          output.push(
+            `<div class="slide">
+              <div class="question"> ${cu}. ${currentQuestion.question} </div>
+              <div class="answers"> ${answers.join("")} </div>
+            </div>`
+          );
+          cu++;
+        }
+      );
+
+      // finally combine our output list into one string of HTML and put it on the page
+      quizContainer.innerHTML = output.join('');
+    }
+    function showResults(){
+
+      // gather answer containers from our quiz
+      const answerContainers = quizContainer.querySelectorAll('.answers');
+
+      // keep track of user's answers
+      let numCorrect = 0;
+
+      // for each question...
+      myQuestions.forEach( (currentQuestion, questionNumber) => {
+
+        // find selected answer
+        const answerContainer = answerContainers[questionNumber];
+        const selector = `input[name=question${questionNumber}]:checked`;
+         const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+        // if answer is correct
+        if(userAnswer === currentQuestion.correctAnswer[1953]){
+          // add to the number of correct answers
+          numCorrect++;
+        }
+      });
+      // to set submitted to true
+
+      document.getElementById('submitid').setAttribute("value",numCorrect);
+      document.getElementById('inp').setAttribute("value",numCorrect);
+      console.log(document.getElementById('submitid').getAttribute("value"));
+      // show number of correct answers out of total
+      //resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+    }
+
+    function showSlide(n) {
+      slides[currentSlide].classList.remove('active-slide');
+      slides[n].classList.add('active-slide');
+      currentSlide = n;
+      if(currentSlide === 0){
+        previousButton.style.display = 'none';
+      }
+      else{
+        previousButton.style.display = 'inline-block';
+      }
+      if(currentSlide === slides.length-1){
+        nextButton.style.display = 'none';
+        submitButton.style.display = 'inline-block';
+      }
+      else{
+        nextButton.style.display = 'inline-block';
+        submitButton.style.display = 'none';
+      }
+    }
+
+    function showNextSlide() {
+      showSlide(currentSlide + 1);
+    }
+
+    function showPreviousSlide() {
+      showSlide(currentSlide - 1);
+    }
+    function showTheSlide(givenSlide){
+      //console.log(givenSlide);
+      showSlide(givenSlide);
+    }
+
+
+    // Variables
+    const quizContainer = document.getElementById('quiz');
+    const resultsContainer = document.getElementById('results');
+    const submitButton = document.getElementById('submitid');
+    const startquiz = document.getElementById('start');
+    startquiz.style.display = "inline-block";
+    submitButton.style.display = 'none';
+    submitButton.setAttribute("name","resultsubmit");
+    submitButton.setAttribute("form","thisform");
+    startquiz.addEventListener("click",start);
+    var myQuestions=<%- JSON.stringify(foundQuestions) %>;
+    function startquestionsss()
+    {for(var i=0;i< <%=foundQuestions.length %>;i++){
+      var btn = document.createElement("button");
+      btn.innerHTML = "Question"+(i+1);
+      btn.id = ""+(i+1);
+      btn.onclick = giveSlides;
+      document.getElementById("que").appendChild(btn);
+      //document.getElementById(btn.id).setAttribute("onclick",'giveSlides(id)');
+    }}
+    function giveSlides(){
+      var c =parseInt(event.srcElement.id);
+      c--;
+      //console.log(c);
+      showTheSlide(c);
+    }
+    // Kick things off
+    //startquestionsss();
+    function start()
+    {
+      startquestionsss();
+      setInterval(timer,1000);
+      startquiz.style.display="none";
+      escapepress.style.display = 'none';
+      showSlide(currentSlide);
+      //fullscreen();
+    }
+    buildQuiz();
+    // Pagination
+    const previousButton = document.getElementById("previous");
+    const nextButton = document.getElementById("next");
+    const slides = document.querySelectorAll(".slide");
+    nextButton.style.display = 'none';
+    previousButton.style.display = 'none';
+    // Show the first slide
+
+    // Event listeners
+    submitButton.addEventListener('click', showResults);
+    previousButton.addEventListener("click", showPreviousSlide);
+    nextButton.addEventListener("click", showNextSlide);
+  })();
+
+</script>
+
+<form id="thisform" action="/<%= testid %>/<%= stuid %>/studentresult" method="post">
+  <input type="number" name="resultss" id="inp" hidden>
+</form>

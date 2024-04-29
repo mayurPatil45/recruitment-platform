@@ -1,0 +1,10 @@
+<%- include("partials/header") %>
+
+    <ul>
+        <% for(var i = 0; i < foundTests.length; i++) { %>
+            <li><a href="<%=foundTests[i]._id%>/viewtest"> <%=foundTests[i].name%> </a></li>
+
+        <% } %>
+    </ul>
+
+<%- include("partials/footer") %>

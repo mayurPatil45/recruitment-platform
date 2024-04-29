@@ -1,0 +1,39 @@
+<%- include("partials/header") %>
+
+  <div class="container">
+    <h1>You can create test here!</h1>
+  </div>
+    <div class="container">
+             <div class="container">
+                <form action="/createtest" method="POST">
+
+                        <div>
+                          <br>
+                          <label for="name">Enter the name of the test</label><br>
+                            <input type="text" name="name" placeholder="Name" required><br>
+                        </div>
+                        <div>
+                          <br>
+                          <label for="duration">Enter the duration of test in minutes</label><br>
+                          <input type="number" name="duration" placeholder="Duration" required><br>
+                        </div>
+                        <div>
+                          <br>
+                          <label for="date">Enter the date of test</label><br>
+                          <input type="date" name="date" placeholder="Date" min="<%= new Date().toISOString().slice(0, 10) %>"required ><br>
+                        </div>
+                        <div>
+                          <br>
+                          <label for="time">Enter the time of test</label><br>
+                          <input type="time" name="time" placeholder="Time" required><br>
+                        </div>
+                        <div>
+                            <br>
+                            <button type="submit">Create Test</button>
+                        </div>
+
+                </form>
+             </div>
+    </div>
+
+<%- include("partials/footer") %>

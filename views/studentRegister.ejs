@@ -1,0 +1,33 @@
+<%- include("partials/header") %>
+
+<div class="row">
+    <h1 style="text-align: center">Sign Up</h1>
+    <div style="width: 30%; margin: 25px auto;">
+        <form action="/studentRegister" method="POST">
+            <div class="form-group">
+                <input class="form-control" type="text" name="candidate_name" placeholder="name" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="institute" placeholder="Institute" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="prn" placeholder="PRN" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="email" name="username" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="hidden" name="linkedin" placeholder="LinkedIn URL" value="https://www.linkedin.com/in/dummy">
+            </div>   
+            <div class="form-group">
+                <input class="form-control" type="password" name="password" placeholder="password" required>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-lg btn-primary btn-block">Sign Up!</button>
+            </div>
+        </form>
+        <a href="/">Go Back</a>
+    </div>
+</div>
+
+<%- include("partials/footer") %>

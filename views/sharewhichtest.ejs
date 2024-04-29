@@ -1,0 +1,7 @@
+<%- include("partials/header") %>
+        <h2>Select the test for which you want to send mails.</h2>
+        <% for(var i = 0; i < tests.length; i++) { %>
+            <a href="<%=tests[i]._id%>/sharetestlink"> <%=tests[i].name%> </a>
+
+        <% } %>
+<%- include("partials/footer") %>

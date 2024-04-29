@@ -1,0 +1,12 @@
+<%- include("partials/header") %>
+<h1>Sorry But The Test Is Currently Unavailable</h1>
+<% var curDate=Date.parse(new Date()); var testDate=Date.parse(availableAt); %>
+<% const options = {weekday: 'long',  year: 'numeric',  month: 'long',  day: 'numeric',  timeZoneName: 'long'} ;%>
+<!-- Convertion to Date date format is as follows -->
+<% var availDate=availableAt.toLocaleTimeString()+" "+availableAt.toLocaleDateString('en-GB',options); %>
+<% if(curDate < testDate) {%> <!-- Test date/time is alreay passed  -->
+  <h2>But will Be Avaiable At <%= availDate %></h2>
+<% } else {%>
+  <h2>Since Test is Already Over!!!!!!!!</h2>
+<% }%>
+<%- include("partials/footer") %>

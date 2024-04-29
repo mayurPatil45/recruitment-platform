@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PLUS ONE</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/CSS/style.css">
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+//
+
+
+
+
+.first-column {
+    width: 66%;
+    padding: 0 10px 0 0;
+    float: left;
+}
+
+.second-column {
+    width: 33%;
+    padding: 0 10px 0 0;
+    float: right;
+}
+
+@media only screen and (max-width: 800px) {
+
+   .first-column {
+        width: 100%;
+        padding-bottom: 10px;
+        float: none;
+    }
+
+    .second-column {
+        width: 100%;
+        padding-bottom: 10px;
+        float: none;
+    }
+
+}
+
+/*footer { */
+/*            width: 100%; */
+/*            bottom: 0px; */
+/*            background-color: #000; */
+/*            color: #fff; */
+/*            position: absolute; */
+/*            padding-top:20px; */
+/*            padding-bottom:50px; */
+/*            text-align:center; */
+/*            font-size:30px; */
+/*            font-weight:bold; */
+/*        } */
+
+
+
+//
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+   width: 33%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#frontImage{
+    padding-left : 50px;
+    width : 500px;
+}
+
+.short-heading{
+    font-size:50px;
+    margin-left:60px;
+    margin-top : 60px;
+}
+
+.landing-login{
+    font-size:30px;
+    margin-left:60px;
+    margin-top : 80px;
+    padding-left: 50px;
+}
+
+.nav-style{
+    margin-left: 50px;
+    margin-right : 50px;
+}
+
+.flash-message{
+    margin-left: 80px;
+    margin-right: 80px;
+    font-size : 120%;
+}
+
+</style>
+
+    </head>
+
+    <body>
+
+        <nav class="navbar navbar-default">
+            <div class = "nav-style">
+                <ul class="nav navbar-nav">
+                  <li><a href='/studentprofile'>Profile</a></li>
+                  <li><a href="/studentpastresult">Past Results</a></li>
+                  <li><a href="/futuretest">Upcoming Test</a></li>
+                  <li><a href="/studentLogout">Logout</a></li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0 nav navbar-nav navbar-right">
+                  <div style="margin-top:8px">
+                      <input class="form-control mr-sm-2" type="search" placeholder="Search Companies" aria-label="Search">
+                      <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+                  </div>
+
+                </form>
+            </div>
+
+        </nav>
+
+        <div class="flash-message">
+            <% if(error && error.length > 0){ %>
+            <div class="alert alert-danger" role="alert">
+                <%= error %>
+            </div>
+            <% } %>
+            <% if(success && success.length > 0){ %>
+            <div class="alert alert-success" role="alert">
+                <%= success %>
+            </div>
+            <% } %>
+        </div>
+
+        <div>

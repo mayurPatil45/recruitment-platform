@@ -1,0 +1,59 @@
+<%- include("partials/header") %>
+    <div class = "container" style="margin-top:70px">
+
+        <div class="jumbotron">
+
+            <div class="container-sm">
+                 <h1 style="text-align:center">Remote First Hiring</h1>
+                 <h3 style="text-align:center">
+                         Build great teams end-to-end, fully remote and from anywhere in the world.
+                     The HackerRank Developer Skills Platform creates a seamless experience that developers
+                     and hiring teams love every step of the way.
+                 </h3>
+            </div>
+
+         </div>
+
+         <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <form action="/createtest" method="GET">
+                        <button type="submit" class="btn btn-success btn-lg">Create Test</button>
+                    </form>
+                </div>
+                <br>
+                <div class="col-sm">
+                    <form action="/selecttest" method="GET">
+                        <button type="submit" class="btn btn-success btn-lg">Manage Test</button>
+                    </form>
+                </div>
+                <br>
+                <div class="col-sm">
+                    <form action="/viewtest" method="GET">
+                        <button type="submit" class="btn btn-success btn-lg">View Test</button>
+                    </form>
+                </div>
+                <br>
+                <div class="col-sm">
+                    <form action="/sharetestlink" method="GET">
+                        <button type="submit" class="btn btn-success btn-lg">Share test link</button>
+                    </form>
+                </div>
+                <br>
+                <div class="col-sm">
+                    <form action="/viewresults" method="GET">
+                        <button type="submit" class="btn btn-success btn-lg">View Test Results</button>
+                    </form>
+                </div>
+                <br>
+                <div class="col-sm">
+                    <form action="/viewcandidates" method="GET">
+                        <button type="submit" class="btn btn-success btn-lg">View Candidates Details</button>
+                    </form>
+                </div>
+                
+            </div>
+         </div>
+    </div>
+
+<%- include("partials/footer") %>

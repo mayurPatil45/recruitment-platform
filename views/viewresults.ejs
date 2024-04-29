@@ -1,0 +1,11 @@
+<%- include("partials/header") %>
+<% if(test.length == 0){%>
+    <h1>No Test Available</h1>
+<%}else {%>
+    <h3>Please select the test for which you want to see results </h3>
+<%}%>
+
+  <% for(var i=0; i<test.length ;i++){ %>
+    <a href="/<%= test[i][1] %>/results"><%= test[i][2] %></a>
+  <% } %>
+<%- include("partials/footer") %>
