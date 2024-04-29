@@ -685,8 +685,12 @@ app.post("/studentLogin", passport.authenticate("local",
     }), function(req, res) {
 
         //Logic to check if already logged in somewhere
+        console.log('Username:', req.body); // Log the username
+        console.log('Request Headers:', req.headers);
+
         
         if(req.body.username === "iamadmin@gmail.com" &&  req.body.password === "admin123") {
+          
             res.render("companyLanding");   //redirect to student landing page
         } else {
           	Candidate.findOne({username : req.body.username}, function(err, stud) {
